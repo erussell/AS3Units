@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<project name="as3units" default="compile" basedir=".">
+    
+    <!--====================================================================-->
+    <!-- Project initialization -->
+    <!--====================================================================-->
+    
+    <property environment="env"/>
+	<!-- Any version of Flex will do, we just need to know where to find the ant tasks -->
+    <property name="FLEX_VERSION" value="4.1.0"/>
+    <property name="FLEX_BASE" value="${env.FLEX_HOME}sdks"/>
+    <property name="FLEX_HOME" value="${FLEX_BASE}/${FLEX_VERSION}"/>
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar"/>
+	<path id="java.lib.path">
+        <fileset dir="build">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+	
+    <!-- Build properties -->
+    <property name="player_version.major" value="10"/>
+    <property name="player_version.minor" value="0"/>
+    <property name="player_version.revision" value="0"/>
+    
+    <!--====================================================================-->
+    <!-- Targets -->
+    <!--====================================================================-->
+    
+    <target name="clean" description="delete all cached object code">
+        <delete includeEmptyDirs="true">
+            <fileset dir="bin">
+                <include name="*.swc"/>
+                <include name="*.cache"/>
+            </fileset>
+            <fileset dir="src/org/ngs/as3units/format">
+                <include name="UCUMParser.as"/>
+                <include name="UCUMLexer.as"/>
+            </fileset>
+        </delete>
+    </target>
+	
+    <target name="generate" description="build the lexer and parser from the grammar">
+        <java fork="true" className="org.antlr.Tool" classpathref="java.lib.path">
+            <jvmarg line="-Xmx128M"/>
+            <arg line="src/org/ngs/as3units/format/UCUM.g"/>
+        </java>
+        <delete includeEmptyDirs="true">
+            <fileset dir=".">
+                <include name="UCUM.tokens"/>
+            </fileset>
+        </delete>
+    </target>
+    
+    <target name="compile" depends="generate" description="build the library swc file">
+    	<compc output="bin/as3units.swc"
+               actionscript-file-encoding="UTF-8"
+               show-binding-warnings="false"
+               incremental="false"
+               maxmemory="512m"
+               fork="true"
+               target-player="${player_version.major}.${player_version.minor}.${player_version.revision}">
+            <source-path path-element="src"/>
+    		<include-sources dir="src" includes="*"/>
+            <library-path dir="lib" append="true">
+                <include name="*.swc"/>
+            </library-path>
+            <static-link-runtime-shared-libraries>false</static-link-runtime-shared-libraries>
+            <default-background-color>0xFFFFFF</default-background-color>
+            <verbose-stacktraces>true</verbose-stacktraces>
+            <warn-constructor-returns-value>true</warn-constructor-returns-value>
+            <warn-deprecated-event-handler-error>true</warn-deprecated-event-handler-error>
+            <metadata title="National Geographic AS3Units">
+                <creator name="National Geographic Society"/>
+                <publisher name="National Geographic Society"/>
+                <language>EN</language>
+           </metadata>
+        </compc>
+    </target>
+    
+</project>
