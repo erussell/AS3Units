@@ -5,7 +5,14 @@ package org.ngs.as3units
 
     public class UserDefined extends SystemOfUnits
     {
-        public static var FORMAT:UnitFormat = new UCUMFormat(new UserSymbolMap(new UCUMCaseSensitiveSymbols()), true, true);
+        private static var s_format:UnitFormat = null;
+        
+        public static function get FORMAT () : UnitFormat {
+            if (s_format == null) {
+                s_format = new UCUMFormat(new UserSymbolMap(), true, true);
+            }
+            return s_format;
+        } 
             
         public static function isDefinitionEnabled () : Boolean { 
             return UserSymbolMap(FORMAT.symbols).definitionEnabled;
@@ -22,19 +29,18 @@ import org.ngs.as3units.UCUM;
 import org.ngs.as3units.Unit;
 import org.ngs.as3units.format.SymbolMap;
 import org.ngs.as3units.format.SymbolMapEntry;
+import org.ngs.as3units.format.UCUMCaseSensitiveSymbols;
 
-internal class UserSymbolMap extends SymbolMap 
+internal class UserSymbolMap extends UCUMCaseSensitiveSymbols 
 {
-    /** */
     private static const RESERVED_CHARS:RegExp = /[\u0000-\u001F\(\)\*\+\-\.\/0-9:\\^\u00B2\u00B3\u00B7\u00B9\u2070\u2074-\u2079]/
     
     private var m_symbolToUnit:Object = {};
     private var m_unitToSymbol:Object = {};
-        
-    public var definitionEnabled:Boolean;
+    public var definitionEnabled:Boolean = true;
     
-    public function UserSymbolMap (baseSymbols:SymbolMap) {
-        definitionEnabled = true;
+    public function UserSymbolMap () {
+        super();
     }
     
     override public function lookup (symbol:String) : SymbolMapEntry {
