@@ -17,6 +17,10 @@ package org.ngs.as3units
      */
     public class SI extends SystemOfUnits
     {
+        public static function get ONE () : Unit {
+            return DELEGATE.ONE;
+        }
+        
         ////////////////
         // BASE UNITS //
         ////////////////
@@ -29,7 +33,7 @@ package org.ngs.as3units
          * these conductors a force equal to 2 × 10-7 newton per metre of length.
          * It is named after the French physicist Andre Ampere (1775-1836).
          */
-        public static const AMPERE:Unit = new BaseUnit(DELEGATE, "A");
+        public static const AMPERE:Unit = u(new BaseUnit(DELEGATE, "A"));
         
         /**
          * The base unit for luminous intensity quantities (<code>cd</code>).
@@ -40,7 +44,7 @@ package org.ngs.as3units
          * @see <a href="http://en.wikipedia.org/wiki/Candela"> 
          *      Wikipedia: Candela</a>
          */
-        public static const CANDELA:Unit = new BaseUnit(DELEGATE, "cd");
+        public static const CANDELA:Unit = u(new BaseUnit(DELEGATE, "cd"));
         
         /**
          * The base unit for thermodynamic temperature quantities (<code>K</code>).
@@ -48,7 +52,7 @@ package org.ngs.as3units
          * triple point of water. It is named after the Scottish mathematician and
          * physicist William Thomson 1st Lord Kelvin (1824-1907)
          */
-        public static const KELVIN:Unit = new BaseUnit(DELEGATE, "K");
+        public static const KELVIN:Unit = u(new BaseUnit(DELEGATE, "K"));
         
         /**
          * The base unit for mass quantities (<code>kg</code>).
@@ -57,26 +61,26 @@ package org.ngs.as3units
          * form of a platinum-iridium cylinder kept at Sevres in France.
          * @see   #GRAM
          */
-        public static const KILOGRAM:Unit = new BaseUnit(DELEGATE, "kg");
+        public static const KILOGRAM:Unit = u(new BaseUnit(DELEGATE, "kg"));
         
         /**
          * The base unit for length quantities (<code>m</code>).
          * One meter was redefined in 1983 as the distance traveled by light in
          * a vacuum in 1/299,792,458 of a second.
          */
-        public static const METRE:Unit = new BaseUnit(DELEGATE, "m");
+        public static const METRE:Unit = u(new BaseUnit(DELEGATE, "m"));
         
         /**
          * Equivalent to {@link #METRE} (American spelling).
          */
-        public static const METER:Unit = METRE;
+        public static const METER:Unit = u(METRE);
         
         /**
          * The base unit for amount of substance quantities (<code>mol</code>).
          * The mole is the amount of substance of a system which contains as many
          * elementary entities as there are atoms in 0.012 kilogram of carbon 12.
          */
-        public static const MOLE:Unit = new BaseUnit(DELEGATE, "mol");
+        public static const MOLE:Unit = u(new BaseUnit(DELEGATE, "mol"));
         
         /**
          * The base unit for duration quantities (<code>s</code>).
@@ -84,7 +88,7 @@ package org.ngs.as3units
          * corresponding to the transition between two hyperfine levels of
          * the ground state of cesium (1967 Standard).
          */
-        public static const SECOND:Unit = new BaseUnit(DELEGATE, "s");
+        public static const SECOND:Unit = u(new BaseUnit(DELEGATE, "s"));
         
         ////////////////////////////////
         // SI DERIVED ALTERNATE UNITS //
@@ -94,14 +98,14 @@ package org.ngs.as3units
          * The derived unit for mass quantities (<code>g</code>).
          * The base unit for mass quantity is {@link #KILOGRAM}.
          */
-        public static const GRAM:Unit = KILOGRAM.scale(1, 1000);
+        public static const GRAM:Unit = u(KILOGRAM.scale(1, 1000));
         
         /**
          * The unit for plane angle quantities (<code>rad</code>).
          * One radian is the angle between two radii of a circle such that the
          * length of the arc between them is equal to the radius.
          */
-        public static const RADIAN:Unit = DELEGATE.ONE.alternate("rad");
+        public static const RADIAN:Unit = u(DELEGATE.ONE.alternate("rad"));
         
         /**
          * The unit for solid angle quantities (<code>sr</code>).
@@ -109,12 +113,12 @@ package org.ngs.as3units
          * an area on the surface of the sphere that is equal to the radius squared.
          * The total solid angle of a sphere is 4*Pi steradians.
          */
-        public static const STERADIAN:Unit = DELEGATE.ONE.alternate("sr");
+        public static const STERADIAN:Unit = u(DELEGATE.ONE.alternate("sr"));
         
         /**
          * The unit for binary information (<code>bit</code>).
          */
-        public static const BIT:Unit = DELEGATE.ONE.alternate("bit");
+        public static const BIT:Unit = u(DELEGATE.ONE.alternate("bit"));
         
         /**
          * The derived unit for frequency (<code>Hz</code>).
@@ -122,7 +126,7 @@ package org.ngs.as3units
          * After Heinrich Rudolf Hertz (1857-1894), German physicist who was the
          * first to produce radio waves artificially.
          */
-        public static const HERTZ:Unit = DELEGATE.ONE.divide(SECOND).alternate("Hz");
+        public static const HERTZ:Unit = u(DELEGATE.ONE.divide(SECOND).alternate("Hz"));
         
         /**
          * The derived unit for force (<code>N</code>).
@@ -130,14 +134,14 @@ package org.ngs.as3units
          * of 1 metre per second per second. It is named after the English
          * mathematician and physicist Sir Isaac Newton (1642-1727).
          */
-        public static const NEWTON:Unit = METRE.multiply(KILOGRAM).divide(SECOND.pow(2)).alternate("N");
+        public static const NEWTON:Unit = u(METRE.multiply(KILOGRAM).divide(SECOND.pow(2)).alternate("N"));
         
         /**
          * The derived unit for pressure, stress (<code>Pa</code>).
          * One pascal is equal to one newton per square meter. It is named after
          * the French philosopher and mathematician Blaise Pascal (1623-1662).
          */
-        public static const PASCAL:Unit = NEWTON.divide(METRE.pow(2)).alternate("Pa");
+        public static const PASCAL:Unit = u(NEWTON.divide(METRE.pow(2)).alternate("Pa"));
         
         /**
          * The derived unit for energy, work, quantity of heat (<code>J</code>).
@@ -145,14 +149,14 @@ package org.ngs.as3units
          * moves through a distance of 1 metre in the direction of the force.
          * It is named after the English physicist James Prescott Joule (1818-1889).
          */
-        public static const JOULE:Unit = NEWTON.multiply(METRE).alternate("J");
+        public static const JOULE:Unit = u(NEWTON.multiply(METRE).alternate("J"));
         
         /**
          * The derived unit for power, radiant, flux (<code>W</code>).
          * One watt is equal to one joule per second. It is named after the British
          * scientist James Watt (1736-1819).
          */
-        public static const WATT:Unit = JOULE.divide(SECOND).alternate("W");
+        public static const WATT:Unit = u(JOULE.divide(SECOND).alternate("W"));
         
         /**
          * The derived unit for electric charge, quantity of electricity
@@ -161,7 +165,7 @@ package org.ngs.as3units
          * by a steady current of one ampere. It is named after the French physicist
          * Charles Augustin de Coulomb (1736-1806).
          */
-        public static const COULOMB:Unit = SECOND.multiply(AMPERE).alternate("C");
+        public static const COULOMB:Unit = u(SECOND.multiply(AMPERE).alternate("C"));
         
         /**
          * The derived unit for electric potential difference, electromotive force
@@ -171,7 +175,7 @@ package org.ngs.as3units
          * when the power dissipated between the points is one watt. It is named
          * after the Italian physicist Count Alessandro Volta (1745-1827).
          */
-        public static const VOLT:Unit = WATT.divide(AMPERE).alternate("V");
+        public static const VOLT:Unit = u(WATT.divide(AMPERE).alternate("V"));
         
         /**
          * The derived unit for capacitance (<code>F</code>).
@@ -180,7 +184,7 @@ package org.ngs.as3units
          * of 1 volt between the plates. It is named after the British physicist
          * and chemist Michael Faraday (1791-1867).
          */
-        public static const FARAD:Unit = COULOMB.divide(VOLT).alternate("F");
+        public static const FARAD:Unit = u(COULOMB.divide(VOLT).alternate("F"));
         
         /**
          * The derived unit for electric resistance (<code>Ω</code> or 
@@ -189,14 +193,14 @@ package org.ngs.as3units
          * one ampere is produced by a potential of one volt across its terminals.
          * It is named after the German physicist Georg Simon Ohm (1789-1854).
          */
-        public static const OHM:Unit = VOLT.divide(AMPERE).alternate("Ω");
+        public static const OHM:Unit = u(VOLT.divide(AMPERE).alternate("Ω"));
         
         /**
          * The derived unit for electric conductance (<code>S</code>).
          * One Siemens is equal to one ampere per volt. It is named after
          * the German engineer Ernst Werner von Siemens (1816-1892).
          */
-        public static const SIEMENS:Unit = AMPERE.divide(VOLT).alternate("S");
+        public static const SIEMENS:Unit = u(AMPERE.divide(VOLT).alternate("S"));
         
         /**
          * The derived unit for magnetic flux (<code>Wb</code>).
@@ -205,7 +209,7 @@ package org.ngs.as3units
          * reduced to zero within one second. It is named after the German physicist
          * Wilhelm Eduard Weber (1804-1891).
          */
-        public static const WEBER:Unit = VOLT.multiply(SECOND).alternate("Wb");
+        public static const WEBER:Unit = u(VOLT.multiply(SECOND).alternate("Wb"));
         
         /**
          * The derived unit for magnetic flux density (<code>T</code>).
@@ -213,7 +217,7 @@ package org.ngs.as3units
          * after the Serbian-born American electrical engineer and physicist
          * Nikola Tesla (1856-1943).
          */
-        public static const TESLA:Unit = WEBER.divide(METRE.pow(2)).alternate("T");
+        public static const TESLA:Unit = u(WEBER.divide(METRE.pow(2)).alternate("T"));
         
         /**
          * The derived unit for inductance (<code>H</code>).
@@ -222,7 +226,7 @@ package org.ngs.as3units
          * one ampere per second. It is named after the American physicist
          * Joseph Henry (1791-1878).
          */
-        public static const HENRY:Unit = WEBER.divide(AMPERE).alternate("H");
+        public static const HENRY:Unit = u(WEBER.divide(AMPERE).alternate("H"));
         
         /**
          * The derived unit for Celsius temperature (<code>℃</code>).
@@ -230,20 +234,20 @@ package org.ngs.as3units
          * (at one atmosphere of pressure) is 0 ℃, while the boiling point is
          * 100 ℃.
          */
-        public static const CELSIUS:Unit = KELVIN.add(273.15);
+        public static const CELSIUS:Unit = u(KELVIN.add(273.15));
         
         /**
          * The derived unit for luminous flux (<code>lm</code>).
          * One Lumen is equal to the amount of light given out through a solid angle
          * by a source of one candela intensity radiating equally in all directions.
          */
-        public static const LUMEN:Unit = CANDELA.multiply(STERADIAN).alternate("lm");
+        public static const LUMEN:Unit = u(CANDELA.multiply(STERADIAN).alternate("lm"));
         
         /**
          * The derived unit for illuminance (<code>lx</code>).
          * One Lux is equal to one lumen per square meter.
          */
-        public static const LUX:Unit = LUMEN.divide(METRE.pow(2)).alternate("lx");
+        public static const LUX:Unit = u(LUMEN.divide(METRE.pow(2)).alternate("lx"));
         
         /**
          * The derived unit for activity of a radionuclide (<code>Bq</code>).
@@ -251,7 +255,7 @@ package org.ngs.as3units
          * It is named after the French physicist, Antoine-Henri Becquerel
          * (1852-1908).
          */
-        public static const BECQUEREL:Unit = DELEGATE.ONE.divide(SECOND).alternate("Bq");
+        public static const BECQUEREL:Unit = u(DELEGATE.ONE.divide(SECOND).alternate("Bq"));
         
         /**
          * The derived unit for absorbed dose, specific energy (imparted), kerma
@@ -260,7 +264,7 @@ package org.ngs.as3units
          * kilogram of matter. It is named after the British physician
          * L. H. Gray (1905-1965).
          */
-        public static const GRAY:Unit = JOULE.divide(KILOGRAM).alternate("Gy");
+        public static const GRAY:Unit = u(JOULE.divide(KILOGRAM).alternate("Gy"));
         
         /**
          * The derived unit for dose equivalent (<code>Sv</code>).
@@ -269,12 +273,12 @@ package org.ngs.as3units
          * radiation. It is named after the Swedish physicist Rolf Sievert
          * (1898-1966).
          */
-        public static const SIEVERT:Unit = JOULE.divide(KILOGRAM).alternate("Sv");
+        public static const SIEVERT:Unit = u(JOULE.divide(KILOGRAM).alternate("Sv"));
         
         /**
          * The derived unit for catalytic activity (<code>kat</code>).
          */
-        public static const KATAL:Unit = MOLE.divide(SECOND).alternate("kat");
+        public static const KATAL:Unit = u(MOLE.divide(SECOND).alternate("kat"));
         
         //////////////////////////////
         // SI DERIVED PRODUCT UNITS //
@@ -283,62 +287,62 @@ package org.ngs.as3units
         /**
          * The metric unit for velocity quantities (<code>m/s</code>).
          */
-        public static const METRES_PER_SECOND:Unit = METRE.divide(SECOND);
+        public static const METRES_PER_SECOND:Unit = u(METRE.divide(SECOND));
         
         /**
          * Equivalent to {@link #METRES_PER_SECOND}.
          */
-        public static const METERS_PER_SECOND:Unit = METRES_PER_SECOND;
+        public static const METERS_PER_SECOND:Unit = u(METRES_PER_SECOND);
         
         /**
          * The metric unit for acceleration quantities (<code>m/s²</code>).
          */
-        public static const METRES_PER_SQUARE_SECOND:Unit = METRES_PER_SECOND.divide(SECOND);
+        public static const METRES_PER_SQUARE_SECOND:Unit = u(METRES_PER_SECOND.divide(SECOND));
         
         /**
          * Equivalent to {@link #METRES_PER_SQUARE_SECOND}.
          */
-        public static const METERS_PER_SQUARE_SECOND:Unit = METRES_PER_SQUARE_SECOND;
+        public static const METERS_PER_SQUARE_SECOND:Unit = u(METRES_PER_SQUARE_SECOND);
         
         /**
          * The metric unit for area quantities (<code>m²</code>).
          */
-        public static const SQUARE_METRE:Unit = METRE.multiply(METRE);
+        public static const SQUARE_METRE:Unit = u(METRE.multiply(METRE));
         
         /**
          * Equivalent to <code>SQUARE_METRE</code>.
          */
-        public static const SQUARE_METER:Unit = SQUARE_METRE;
+        public static const SQUARE_METER:Unit = u(SQUARE_METRE);
         
         /**
          * The metric unit for volume quantities (<code>m³</code>).
          */
-        public static const CUBIC_METRE:Unit = SQUARE_METRE.multiply(METRE);
+        public static const CUBIC_METRE:Unit = u(SQUARE_METRE.multiply(METRE));
         
         /**
          * Equivalent to <code>KILO(METRE)</code>.
          */
-        public static const KILOMETRE:Unit = METER.scale(1000);
+        public static const KILOMETRE:Unit = u(METER.scale(1000));
         
         /**
          * Equivalent to {@link #KILOMETRE}.
          */
-        public static const KILOMETER:Unit = KILOMETRE;
+        public static const KILOMETER:Unit = u(KILOMETRE);
         
         /**
          * Equivalent to <code>CENTI(METRE)</code>.
          */
-        public static const CENTIMETRE:Unit = METRE.scale(1, 100);
+        public static const CENTIMETRE:Unit = u(METRE.scale(1, 100));
         
         /**
          * Equivalent to {@link #CENTIMETRE}.
          */
-        public static const CENTIMETER:Unit = CENTIMETRE;
+        public static const CENTIMETER:Unit = u(CENTIMETRE);
         
         /**
          * Equivalent to <code>MILLI(METRE)</code>.
          */
-        public static const MILLIMETRE:Unit = METRE.scale(1, 1000);
+        public static const MILLIMETRE:Unit = u(METRE.scale(1, 1000));
         
         /**
          * Equivalent to {@link #MILLIMETRE}.

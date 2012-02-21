@@ -6,15 +6,13 @@ package org.ngs.as3units
             return DELEGATE.ONE;
         }
         
-        private static var s_allUnits:Array = [];
         private static var s_metricUnits:Array = [];
         
         private static function ucum (unit:Unit, isMetric:Boolean=false) : Unit {
-            s_allUnits.push(unit);
             if (isMetric) {
                 s_metricUnits.push(unit);
             }
-            return unit;
+            return u(unit);
         }
         
         private static const AVOGADRO_CONSTANT:Number = 6.02214199e23; // (1/mol).
