@@ -44,9 +44,14 @@
             <jvmarg line="-Xmx128M"/>
             <arg line="src/org/ngs/as3units/format/UCUM.g"/>
         </java>
+    	<java fork="true" className="org.antlr.Tool" classpathref="java.lib.path">
+            <jvmarg line="-Xmx128M"/>
+            <arg line="src/org/ngs/as3units/format/Units.g"/>
+        </java>
         <delete includeEmptyDirs="true">
             <fileset dir=".">
                 <include name="UCUM.tokens"/>
+                <include name="Units.tokens"/>
             </fileset>
         </delete>
     </target>
