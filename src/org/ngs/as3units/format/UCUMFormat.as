@@ -66,8 +66,8 @@ package org.ngs.as3units.format
          * Base constructor.
          */
         public function UCUMFormat (symbolMap:SymbolMap, 
-                                       parsingEnabled:Boolean=false, 
-                                       caseSensitive:Boolean=false) {
+                                    parsingEnabled:Boolean=false, 
+                                    caseSensitive:Boolean=false) {
             m_symbolMap = symbolMap;
             m_parsingEnabled = parsingEnabled;
             m_caseSensitive = caseSensitive;
@@ -294,30 +294,3 @@ package org.ngs.as3units.format
         }
     }
 }
-
-internal class StringBuffer 
-{
-    private var m_buffer:String;
-    
-    public function StringBuffer () {
-        m_buffer = "";
-    }
-    
-    public function toString () : String {
-        return m_buffer;
-    }
-    
-    public function indexOf (value:String) : int {
-        return m_buffer.indexOf(value);
-    }
-    
-    public function prepend (value:String) : void {
-        m_buffer = value + m_buffer;
-    }
-    
-    public function append (value:String) : void {
-        m_buffer += value;
-    }
-}
-    
-    

@@ -13,7 +13,7 @@ package org.ngs.as3units
             }
             return s_format;
         } 
-            
+        
         public static function isDefinitionEnabled () : Boolean { 
             return UserSymbolMap(FORMAT.symbols).definitionEnabled;
         }
