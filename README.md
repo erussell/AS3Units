@@ -1,18 +1,18 @@
-# NGUnits libraty
+# NGUnits library
 
 This package contains the AS3Units library
 
-AS3Units is an ActionScript port of the [NGUnits](/erussell/ngunits) Java units library. Its emphasis is on parsing and converting between units that are not know until runtime. The only built-in units it currently supports are [SI](http://physics.nist.gov/cuu/Units/) and [UCUM](http://unitsofmeasure.org/) units.
+AS3Units is an ActionScript port of the [NGUnits](/erussell/ngunits) Java units library. Its emphasis is on parsing and converting between units that are not known until runtime.
 
 ## Is there documentation?
 
-No, but if you ask nicely I could be persuaded to write some.
+No, but if you asked nicely I could be persuaded to write some.
 
 ## What is the license?
 
 AS3Units is released under a BSD license
 
-> AS3Units © 2011 National Geographic Society  
+> AS3Units © 2011-2012 National Geographic Society  
 > All rights reserved.
 
 > Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
