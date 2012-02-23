@@ -138,10 +138,8 @@ package org.ngs.as3units.unit
         }
         
         private function getBaseUnit (unit:Unit) : Unit {
-            if (unit is BaseUnit) {
+            if ((unit is BaseUnit) || (unit is AlternateUnit)) {
                 return unit;
-            } else if (unit is AlternateUnit) {
-                return getBaseUnit(AlternateUnit(unit).parent);
             } else if (unit is TransformedUnit) {
                 return getBaseUnit(TransformedUnit(unit).parent);
             } else if (unit is ProductUnit) {
