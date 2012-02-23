@@ -2,7 +2,6 @@ grammar Units;
 
 options {
     language=ActionScript;
-    backtrack=true; // please don't tell the parser police
 }
 
 @lexer::package { org.ngs.as3units.format }
@@ -44,9 +43,9 @@ addExpr returns [Unit value]
         };
 
 mulExpr returns [Unit value]
-    :   v1=exponentExpr ( ( ( '*' | 'á' ) v2=exponentExpr ) | ( '/' v3=exponentExpr ) )*
+    :   v1=exponentExpr ( ( ( '*' | '\u00B7' ) v2=exponentExpr ) | ( '/' v3=exponentExpr ) )*
         {
-            $value = v1;
+            $value = $v1.value;
             if ($v2.value != null) {
                 $value = $value.multiply($v2.value);
             }
@@ -59,10 +58,10 @@ exponentExpr returns [Unit value]
     :   ( atomicExpr ( exponent )? ) 
         {
             $value = $atomicExpr.value;
-            if ($exponent.value.pow && ($exponent.value.pow != 1)) {
+            if ($exponent.value && $exponent.value.pow && ($exponent.value.pow != 1)) {
                 $value = $value.pow($exponent.value.pow);
             }
-            if ($exponent.value.root && ($exponent.value.root != 1)) {
+            if ($exponent.value && $exponent.value.root && ($exponent.value.root != 1)) {
                 $value = $value.root($exponent.value.root);
             }
         }
@@ -92,7 +91,7 @@ atomicExpr returns [Unit value]
             var symbol:String = $IDENTIFIER.text;
             var entry:SymbolMapEntry = symbols.lookup(symbol);
             if (entry == null) {
-                throw new Error("symbol not found " + symbol);
+                throw new SymbolNotFound(symbol);
             } else if (entry.prefix != null) {
                 $value = entry.unit.transform(entry.prefix.converter);
             } else {

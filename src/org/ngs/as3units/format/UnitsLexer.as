@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 src/org/ngs/as3units/format/Units.g 2012-02-21 12:20:12
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 src/org/ngs/as3units/format/Units.g 2012-02-22 01:05:54
 package  org.ngs.as3units.format  {
     import org.antlr.runtime.*;
         
@@ -63,8 +63,8 @@ package  org.ngs.as3units.format  {
             try {
                 var _type:int = T__12;
                 var _channel:int = DEFAULT_TOKEN_CHANNEL;
-                // src/org/ngs/as3units/format/Units.g:10:7: ( 'á' )
-                // src/org/ngs/as3units/format/Units.g:10:9: 'á'
+                // src/org/ngs/as3units/format/Units.g:10:7: ( '\\u00B7' )
+                // src/org/ngs/as3units/format/Units.g:10:9: '\\u00B7'
                 {
                 match(183); 
 
@@ -224,8 +224,8 @@ package  org.ngs.as3units.format  {
         // $ANTLR start DIGIT
         public final function mDIGIT():void {
             try {
-                // src/org/ngs/as3units/format/Units.g:143:5: ( ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ) )
-                // src/org/ngs/as3units/format/Units.g:143:7: ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' )
+                // src/org/ngs/as3units/format/Units.g:147:5: ( ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ) )
+                // src/org/ngs/as3units/format/Units.g:147:9: ( '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' )
                 {
                 if ( (input.LA(1)>=48 && input.LA(1)<=57) ) {
                     input.consume();
@@ -247,8 +247,8 @@ package  org.ngs.as3units.format  {
         // $ANTLR start SUPERSCIRIPT_DIGIT
         public final function mSUPERSCIRIPT_DIGIT():void {
             try {
-                // src/org/ngs/as3units/format/Units.g:145:5: ( ( '\\u2070' | '\\u00B9' | '\\u00B2' | '\\u00B3' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' ) )
-                // src/org/ngs/as3units/format/Units.g:145:7: ( '\\u2070' | '\\u00B9' | '\\u00B2' | '\\u00B3' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' )
+                // src/org/ngs/as3units/format/Units.g:149:5: ( ( '\\u2070' | '\\u00B9' | '\\u00B2' | '\\u00B3' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' ) )
+                // src/org/ngs/as3units/format/Units.g:149:9: ( '\\u2070' | '\\u00B9' | '\\u00B2' | '\\u00B3' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' )
                 {
                 if ( (input.LA(1)>=178 && input.LA(1)<=179)||input.LA(1)==185||input.LA(1)==8304||(input.LA(1)>=8308 && input.LA(1)<=8313) ) {
                     input.consume();
@@ -270,8 +270,8 @@ package  org.ngs.as3units.format  {
         // $ANTLR start INITIAL_CHAR
         public final function mINITIAL_CHAR():void {
             try {
-                // src/org/ngs/as3units/format/Units.g:147:5: (~ ( '\\u0000' .. '\\u0020' | '(' | ')' | '*' | '+' | '-' | '.' | '/' | '0' .. '9' | ':' | '^' | '\\u00B2' | '\\u00B3' | '\\u00B7' | '\\u00B9' | '\\u2070' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' ) )
-                // src/org/ngs/as3units/format/Units.g:147:7: ~ ( '\\u0000' .. '\\u0020' | '(' | ')' | '*' | '+' | '-' | '.' | '/' | '0' .. '9' | ':' | '^' | '\\u00B2' | '\\u00B3' | '\\u00B7' | '\\u00B9' | '\\u2070' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' )
+                // src/org/ngs/as3units/format/Units.g:151:5: (~ ( '\\u0000' .. '\\u0020' | '(' | ')' | '*' | '+' | '-' | '.' | '/' | '0' .. '9' | ':' | '^' | '\\u00B2' | '\\u00B3' | '\\u00B7' | '\\u00B9' | '\\u2070' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' ) )
+                // src/org/ngs/as3units/format/Units.g:151:9: ~ ( '\\u0000' .. '\\u0020' | '(' | ')' | '*' | '+' | '-' | '.' | '/' | '0' .. '9' | ':' | '^' | '\\u00B2' | '\\u00B3' | '\\u00B7' | '\\u00B9' | '\\u2070' | '\\u2074' | '\\u2075' | '\\u2076' | '\\u2077' | '\\u2078' | '\\u2079' )
                 {
                 if ( (input.LA(1)>=33 && input.LA(1)<=39)||input.LA(1)==44||(input.LA(1)>=59 && input.LA(1)<=93)||(input.LA(1)>=95 && input.LA(1)<=177)||(input.LA(1)>=180 && input.LA(1)<=182)||input.LA(1)==184||(input.LA(1)>=186 && input.LA(1)<=8303)||(input.LA(1)>=8305 && input.LA(1)<=8307)||(input.LA(1)>=8314 && input.LA(1)<=65535) ) {
                     input.consume();
@@ -295,7 +295,7 @@ package  org.ngs.as3units.format  {
             try {
                 var _type:int = SIGN;
                 var _channel:int = DEFAULT_TOKEN_CHANNEL;
-                // src/org/ngs/as3units/format/Units.g:150:5: ( '+' | '-' )
+                // src/org/ngs/as3units/format/Units.g:154:5: ( '+' | '-' )
                 // src/org/ngs/as3units/format/Units.g:
                 {
                 if ( input.LA(1)==43||input.LA(1)==45 ) {
@@ -322,10 +322,10 @@ package  org.ngs.as3units.format  {
             try {
                 var _type:int = INTEGER;
                 var _channel:int = DEFAULT_TOKEN_CHANNEL;
-                // src/org/ngs/as3units/format/Units.g:152:5: ( ( DIGIT )+ )
-                // src/org/ngs/as3units/format/Units.g:152:7: ( DIGIT )+
+                // src/org/ngs/as3units/format/Units.g:156:5: ( ( DIGIT )+ )
+                // src/org/ngs/as3units/format/Units.g:156:9: ( DIGIT )+
                 {
-                // src/org/ngs/as3units/format/Units.g:152:7: ( DIGIT )+
+                // src/org/ngs/as3units/format/Units.g:156:9: ( DIGIT )+
                 var cnt1:int=0;
                 loop1:
                 do {
@@ -339,7 +339,7 @@ package  org.ngs.as3units.format  {
 
                     switch (alt1) {
                 	case 1 :
-                	    // src/org/ngs/as3units/format/Units.g:152:8: DIGIT
+                	    // src/org/ngs/as3units/format/Units.g:156:10: DIGIT
                 	    {
                 	    mDIGIT(); 
 
@@ -370,10 +370,10 @@ package  org.ngs.as3units.format  {
             try {
                 var _type:int = FLOAT;
                 var _channel:int = DEFAULT_TOKEN_CHANNEL;
-                // src/org/ngs/as3units/format/Units.g:154:5: ( ( SIGN )? ( DIGIT )* '.' ( DIGIT )+ ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )? )
-                // src/org/ngs/as3units/format/Units.g:154:7: ( SIGN )? ( DIGIT )* '.' ( DIGIT )+ ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )?
+                // src/org/ngs/as3units/format/Units.g:158:5: ( ( SIGN )? ( DIGIT )* '.' ( DIGIT )+ ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )? )
+                // src/org/ngs/as3units/format/Units.g:158:9: ( SIGN )? ( DIGIT )* '.' ( DIGIT )+ ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )?
                 {
-                // src/org/ngs/as3units/format/Units.g:154:7: ( SIGN )?
+                // src/org/ngs/as3units/format/Units.g:158:9: ( SIGN )?
                 var alt2:int=2;
                 var LA2_0:int = input.LA(1);
 
@@ -382,7 +382,7 @@ package  org.ngs.as3units.format  {
                 }
                 switch (alt2) {
                     case 1 :
-                        // src/org/ngs/as3units/format/Units.g:154:8: SIGN
+                        // src/org/ngs/as3units/format/Units.g:158:10: SIGN
                         {
                         mSIGN(); 
 
@@ -391,7 +391,7 @@ package  org.ngs.as3units.format  {
 
                 }
 
-                // src/org/ngs/as3units/format/Units.g:154:15: ( DIGIT )*
+                // src/org/ngs/as3units/format/Units.g:158:17: ( DIGIT )*
                 loop3:
                 do {
                     var alt3:int=2;
@@ -404,7 +404,7 @@ package  org.ngs.as3units.format  {
 
                     switch (alt3) {
                 	case 1 :
-                	    // src/org/ngs/as3units/format/Units.g:154:16: DIGIT
+                	    // src/org/ngs/as3units/format/Units.g:158:18: DIGIT
                 	    {
                 	    mDIGIT(); 
 
@@ -417,7 +417,7 @@ package  org.ngs.as3units.format  {
                 } while (true);
 
                 match(46); 
-                // src/org/ngs/as3units/format/Units.g:154:28: ( DIGIT )+
+                // src/org/ngs/as3units/format/Units.g:158:30: ( DIGIT )+
                 var cnt4:int=0;
                 loop4:
                 do {
@@ -431,7 +431,7 @@ package  org.ngs.as3units.format  {
 
                     switch (alt4) {
                 	case 1 :
-                	    // src/org/ngs/as3units/format/Units.g:154:29: DIGIT
+                	    // src/org/ngs/as3units/format/Units.g:158:31: DIGIT
                 	    {
                 	    mDIGIT(); 
 
@@ -446,7 +446,7 @@ package  org.ngs.as3units.format  {
                     cnt4++;
                 } while (true);
 
-                // src/org/ngs/as3units/format/Units.g:154:37: ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )?
+                // src/org/ngs/as3units/format/Units.g:158:39: ( ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+ )?
                 var alt7:int=2;
                 var LA7_0:int = input.LA(1);
 
@@ -455,7 +455,7 @@ package  org.ngs.as3units.format  {
                 }
                 switch (alt7) {
                     case 1 :
-                        // src/org/ngs/as3units/format/Units.g:154:38: ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+
+                        // src/org/ngs/as3units/format/Units.g:158:40: ( 'e' | 'E' ) ( SIGN )? ( DIGIT )+
                         {
                         if ( input.LA(1)==69||input.LA(1)==101 ) {
                             input.consume();
@@ -465,7 +465,7 @@ package  org.ngs.as3units.format  {
                             throw recover(new MismatchedSetException(null,input));
                         }
 
-                        // src/org/ngs/as3units/format/Units.g:154:50: ( SIGN )?
+                        // src/org/ngs/as3units/format/Units.g:158:52: ( SIGN )?
                         var alt5:int=2;
                         var LA5_0:int = input.LA(1);
 
@@ -474,7 +474,7 @@ package  org.ngs.as3units.format  {
                         }
                         switch (alt5) {
                             case 1 :
-                                // src/org/ngs/as3units/format/Units.g:154:51: SIGN
+                                // src/org/ngs/as3units/format/Units.g:158:53: SIGN
                                 {
                                 mSIGN(); 
 
@@ -483,7 +483,7 @@ package  org.ngs.as3units.format  {
 
                         }
 
-                        // src/org/ngs/as3units/format/Units.g:154:58: ( DIGIT )+
+                        // src/org/ngs/as3units/format/Units.g:158:60: ( DIGIT )+
                         var cnt6:int=0;
                         loop6:
                         do {
@@ -497,7 +497,7 @@ package  org.ngs.as3units.format  {
 
                             switch (alt6) {
                         	case 1 :
-                        	    // src/org/ngs/as3units/format/Units.g:154:59: DIGIT
+                        	    // src/org/ngs/as3units/format/Units.g:158:61: DIGIT
                         	    {
                         	    mDIGIT(); 
 
@@ -534,11 +534,11 @@ package  org.ngs.as3units.format  {
             try {
                 var _type:int = IDENTIFIER;
                 var _channel:int = DEFAULT_TOKEN_CHANNEL;
-                // src/org/ngs/as3units/format/Units.g:156:5: ( INITIAL_CHAR ( INITIAL_CHAR | DIGIT )* )
-                // src/org/ngs/as3units/format/Units.g:156:7: INITIAL_CHAR ( INITIAL_CHAR | DIGIT )*
+                // src/org/ngs/as3units/format/Units.g:160:5: ( INITIAL_CHAR ( INITIAL_CHAR | DIGIT )* )
+                // src/org/ngs/as3units/format/Units.g:160:9: INITIAL_CHAR ( INITIAL_CHAR | DIGIT )*
                 {
                 mINITIAL_CHAR(); 
-                // src/org/ngs/as3units/format/Units.g:156:20: ( INITIAL_CHAR | DIGIT )*
+                // src/org/ngs/as3units/format/Units.g:160:22: ( INITIAL_CHAR | DIGIT )*
                 loop8:
                 do {
                     var alt8:int=2;
