@@ -46,10 +46,10 @@ package org.ngs.as3units
          * A dimensionless unit equals to <code>0.01</code> 
          * (standard name <code>%</code>).
          */
-        public static const PERCENT:Unit = u(DELEGATE.ONE.scale(1/100));
+        public static const PERCENT:Unit = u(DELEGATE.ONE.scale(1, 100));
         
         /** */
-        public static const PER_MIL:Unit = u(PERCENT.scale(1/10));
+        public static const PER_MIL:Unit = u(PERCENT.scale(1, 10));
         
         /**
          * A logarithmic unit used to describe a ratio
@@ -65,7 +65,7 @@ package org.ngs.as3units
          * A unit of amount of substance equals to one atom
          * (standard name <code>atom</code>).
          */
-        public static const ATOM:Unit = SI.MOLE.scale(1/AVOGADRO_CONSTANT);
+        public static const ATOM:Unit = SI.MOLE.scale(1, AVOGADRO_CONSTANT);
         
         ////////////
         // Length //
@@ -75,14 +75,14 @@ package org.ngs.as3units
          * A unit of length equal to <code>0.3048 m</code> 
          * (standard name <code>ft</code>).
          */
-        public static const FOOT:Unit = u(SI.METRE.scale(INTERNATIONAL_FOOT_DIVIDEND/INTERNATIONAL_FOOT_DIViSOR));
+        public static const FOOT:Unit = u(SI.METRE.scale(INTERNATIONAL_FOOT_DIVIDEND, INTERNATIONAL_FOOT_DIViSOR));
         
         /**
          * A unit of length equal to <code>1200/3937 m</code> 
          * (standard name <code>foot_survey_us</code>).
          * See also: <a href="http://www.sizes.com/units/foot.htm">foot</a>
          */
-        public static const FOOT_SURVEY_US:Unit = u(SI.METRE.scale(1200/3937));
+        public static const FOOT_SURVEY_US:Unit = u(SI.METRE.scale(1200, 3937));
         
         /**
          * A unit of length equal to <code>0.9144 m</code>
@@ -94,13 +94,13 @@ package org.ngs.as3units
          * A unit of length equal to <code>0.0254 m</code> 
          * (standard name <code>in</code>).
          */
-        public static const INCH:Unit = u(FOOT.scale(1/12));
+        public static const INCH:Unit = u(FOOT.scale(1, 12));
         
         /**
          * A unit of length equal to <code>1609.344 m</code>
          * (standard name <code>mi</code>).
          */
-        public static const MILE:Unit = u(SI.METRE.scale(1609344/1000));
+        public static const MILE:Unit = u(SI.METRE.scale(1609344, 1000));
         
         /**
          * A unit of length equal to <code>1852.0 m</code>
@@ -112,7 +112,7 @@ package org.ngs.as3units
          * A unit of length equal to <code>1E-10 m</code>
          * (standard name <code>Å</code>).
          */
-        public static const ANGSTROM:Unit = u(SI.METRE.scale(1/10000000000));
+        public static const ANGSTROM:Unit = u(SI.METRE.scale(1, 10000000000));
         
         /**
          * A unit of length equal to the average distance from the center of the
@@ -140,7 +140,7 @@ package org.ngs.as3units
          * (standard name <code>pt</code>).
          * @see     #PIXEL
          */
-        public static const POINT:Unit = u(INCH.scale(13837/1000000));
+        public static const POINT:Unit = u(INCH.scale(13837, 1000000));
         
         /**
          * A unit of length equal to <code>1/72 {@link #INCH}</code>
@@ -148,7 +148,7 @@ package org.ngs.as3units
          * It is the American point rounded to an even 1/72 inch.
          * @see     #POINT
          */
-        public static const PIXEL:Unit = u(INCH.scale(1/72));
+        public static const PIXEL:Unit = u(INCH.scale(1, 72));
         
         /**
          * Equivalent {@link #PIXEL}
@@ -157,22 +157,22 @@ package org.ngs.as3units
         
         
         /** */
-        public static const FOOT_MODIFIED_AMERICAN:Unit = u(SI.METRE.scale(12.0004584/39.37));
+        public static const FOOT_MODIFIED_AMERICAN:Unit = u(SI.METRE.scale(12.0004584, 39.37));
         
         /** */
-        public static const FOOT_CLARKE:Unit = u(SI.METRE.scale(12.0/39.370432));
+        public static const FOOT_CLARKE:Unit = u(SI.METRE.scale(12.0, 39.370432));
         
         /** */
-        public static const FOOT_INDIAN:Unit = u(SI.METRE.scale(12.0/39.370141));
+        public static const FOOT_INDIAN:Unit = u(SI.METRE.scale(12.0, 39.370141));
         
         /** */
-        public static const LINK:Unit = u(SI.METRE.scale(7.92/39.370432));
+        public static const LINK:Unit = u(SI.METRE.scale(7.92, 39.370432));
         
         /** */
-        public static const LINK_BENOIT:Unit = u(SI.METRE.scale(7.92/39.370113));
+        public static const LINK_BENOIT:Unit = u(SI.METRE.scale(7.92, 39.370113));
         
         /** */
-        public static const LINK_SEARS:Unit = u(SI.METRE.scale(7.92/39.370147));
+        public static const LINK_SEARS:Unit = u(SI.METRE.scale(7.92, 39.370147));
         
         /** */
         public static const CHAIN_BENOIT:Unit = u(LINK_BENOIT.scale(100));
@@ -181,7 +181,7 @@ package org.ngs.as3units
         public static const CHAIN_SEARS:Unit = u(LINK_SEARS.scale(100));
         
         /** */
-        public static const YARD_SEARS:Unit = u(SI.METRE.scale(36/39.370147));
+        public static const YARD_SEARS:Unit = u(SI.METRE.scale(36, 39.370147));
         
         /** */
         public static const YARD_INDIAN:Unit = u(FOOT_INDIAN.scale(3));
@@ -227,7 +227,7 @@ package org.ngs.as3units
          * A unit of duration equal to one twelfth of a year
          * (standard name <code>month</code>).
          */
-        public static const MONTH:Unit = u(YEAR.scale(1/12));
+        public static const MONTH:Unit = u(YEAR.scale(1, 12));
         
         /**
          * A unit of duration equal to the time required for a complete rotation of
@@ -251,7 +251,7 @@ package org.ngs.as3units
         public static const YEAR_CALENDAR:Unit = u(DAY.scale(365));
         
         /** */
-        public static const MILLISECOND:Unit = u(SI.SECOND.scale(1/1000));
+        public static const MILLISECOND:Unit = u(SI.SECOND.scale(1, 1000));
         
         //////////
         // Mass //
@@ -261,7 +261,7 @@ package org.ngs.as3units
          * A unit of mass equal to 1/12 the mass of the carbon-12 atom
          * (standard name <code>u</code>).
          */
-        public static const ATOMIC_MASS:Unit = u(SI.KILOGRAM.scale(1e-3 / AVOGADRO_CONSTANT));
+        public static const ATOMIC_MASS:Unit = u(SI.KILOGRAM.scale(1e-3, AVOGADRO_CONSTANT));
         
         /**
          * A unit of mass equal to the mass of the electron
@@ -273,13 +273,13 @@ package org.ngs.as3units
          * A unit of mass equal to <code>453.59237 grams</code> (avoirdupois pound,
          * standard name <code>lb</code>).
          */
-        public static const POUND:Unit = u(SI.KILOGRAM.scale(AVOIRDUPOIS_POUND_DIVIDEND/AVOIRDUPOIS_POUND_DIVISOR));
+        public static const POUND:Unit = u(SI.KILOGRAM.scale(AVOIRDUPOIS_POUND_DIVIDEND, AVOIRDUPOIS_POUND_DIVISOR));
         
         /**
          * A unit of mass equal to <code>1 / 16 {@link #POUND}</code>
          * (standard name <code>oz</code>).
          */
-        public static const OUNCE:Unit = u(POUND.scale(1/16));
+        public static const OUNCE:Unit = u(POUND.scale(1, 16));
         
         /**
          * A unit of mass equal to <code>2000 {@link #POUND}</code> (short ton, 
@@ -331,7 +331,7 @@ package org.ngs.as3units
          * A unit of temperature equal to <code>5/9 °K</code>
          * (standard name <code>°R</code>).
          */
-        public static const RANKINE:Unit = u(SI.KELVIN.scale(5/9));
+        public static const RANKINE:Unit = u(SI.KELVIN.scale(5, 9));
         
         /**
          * A unit of temperature equal to degree Rankine minus 
@@ -354,31 +354,31 @@ package org.ngs.as3units
          * A unit of angle equal to <code>1/360 {@link #REVOLUTION}</code>
          * (standard name <code>°</code>).
          */
-        public static const DEGREE_ANGLE:Unit = u(REVOLUTION.scale(1/360));
+        public static const DEGREE_ANGLE:Unit = u(REVOLUTION.scale(1, 360));
         
         /**
          * A unit of angle equal to <code>1/60 {@link #DEGREE_ANGLE}</code>
          * (standard name <code>′</code>).
          */
-        public static const MINUTE_ANGLE:Unit = u(DEGREE_ANGLE.scale(1/60));
+        public static const MINUTE_ANGLE:Unit = u(DEGREE_ANGLE.scale(1, 60));
         
         /**
          *  A unit of angle equal to <code>1/60 {@link #MINUTE_ANGLE}</code>
          * (standard name <code>"</code>).
          */
-        public static const SECOND_ANGLE:Unit = u(MINUTE_ANGLE.scale(1/60));
+        public static const SECOND_ANGLE:Unit = u(MINUTE_ANGLE.scale(1, 60));
         
         /**
          * A unit of angle equal to <code>0.01 {@link SI#RADIAN}</code>
          * (standard name <code>centiradian</code>).
          */
-        public static const CENTIRADIAN:Unit = u(SI.RADIAN.scale(1/100));
+        public static const CENTIRADIAN:Unit = u(SI.RADIAN.scale(1, 100));
         
         /**
          * A unit of angle measure equal to <code>1/400 {@link #REVOLUTION}</code>
          * (standard name <code>grade</code>).
          */
-        public static const GRADE:Unit = u(REVOLUTION.scale(1/400));
+        public static const GRADE:Unit = u(REVOLUTION.scale(1, 400));
         
         //////////////
         // Velocity //
@@ -427,7 +427,7 @@ package org.ngs.as3units
          * A unit of acceleration equal to the gravity at the earth's surface
          * (standard name <code>grav</code>).
          */
-        public static const G:Unit = u(SI.METRES_PER_SQUARE_SECOND.scale(STANDARD_GRAVITY_DIVIDEND/STANDARD_GRAVITY_DIVISOR));
+        public static const G:Unit = u(SI.METRES_PER_SQUARE_SECOND.scale(STANDARD_GRAVITY_DIVIDEND, STANDARD_GRAVITY_DIVISOR));
         
         //////////
         // Area //
@@ -479,7 +479,7 @@ package org.ngs.as3units
          * electromagnetic unit of magnetomotive force, equal to <code>10/4
          * &pi;ampere-turn</code> (standard name <code>Gi</code>).
          */
-        public static const GILBERT:Unit = u(SI.AMPERE.scale(10.0 / (4.0 * Math.PI)));
+        public static const GILBERT:Unit = u(SI.AMPERE.scale(10.0, (4.0 * Math.PI)));
         
         ////////////
         // Energy //
@@ -489,7 +489,7 @@ package org.ngs.as3units
          * A unit of energy equal to <code>1E-7 J</code>
          * (standard name <code>erg</code>).
          */
-        public static const ERG:Unit = u(SI.JOULE.scale(1/10000000));
+        public static const ERG:Unit = u(SI.JOULE.scale(1, 10000000));
         
         /**
          * A unit of energy equal to one electron-volt (standard name 
@@ -515,7 +515,7 @@ package org.ngs.as3units
          * A unit of magnetic flux equal <code>1E-8 Wb</code>
          * (standard name <code>Mx</code>).
          */
-        public static const MAXWELL:Unit = u(SI.WEBER.scale(1/100000000));
+        public static const MAXWELL:Unit = u(SI.WEBER.scale(1, 100000000));
         
         ///////////////////////////
         // Magnetic Flux Density //
@@ -525,7 +525,7 @@ package org.ngs.as3units
          * A unit of magnetic flux density equal <code>1000 A/m</code>
          * (standard name <code>G</code>).
          */
-        public static const GAUSS:Unit = u(SI.TESLA.scale(1/10000));
+        public static const GAUSS:Unit = u(SI.TESLA.scale(1, 10000));
         
         ///////////
         // Force //
@@ -535,19 +535,19 @@ package org.ngs.as3units
          * A unit of force equal to <code>1E-5 N</code>
          * (standard name <code>dyn</code>).
          */
-        public static const DYNE:Unit = u(SI.NEWTON.scale(1/100000));
+        public static const DYNE:Unit = u(SI.NEWTON.scale(1, 100000));
         
         /**
          * A unit of force equal to <code>9.80665 N</code>
          * (standard name <code>kgf</code>).
          */
-        public static const KILOGRAM_FORCE:Unit = u(SI.NEWTON.scale(STANDARD_GRAVITY_DIVIDEND/STANDARD_GRAVITY_DIVISOR));
+        public static const KILOGRAM_FORCE:Unit = u(SI.NEWTON.scale(STANDARD_GRAVITY_DIVIDEND, STANDARD_GRAVITY_DIVISOR));
         
         /**
          * A unit of force equal to <code>{@link #POUND}·{@link #G}</code>
          * (standard name <code>lbf</code>).
          */
-        public static const POUND_FORCE:Unit = u(SI.NEWTON.scale((AVOIRDUPOIS_POUND_DIVIDEND * STANDARD_GRAVITY_DIVIDEND)/(AVOIRDUPOIS_POUND_DIVISOR * STANDARD_GRAVITY_DIVISOR)));
+        public static const POUND_FORCE:Unit = u(SI.NEWTON.scale((AVOIRDUPOIS_POUND_DIVIDEND * STANDARD_GRAVITY_DIVIDEND), (AVOIRDUPOIS_POUND_DIVISOR * STANDARD_GRAVITY_DIVISOR)));
         
         ///////////
         // Power //
@@ -598,13 +598,13 @@ package org.ngs.as3units
          * A unit of radiation dose absorbed equal to a dose of 0.01 joule of
          * energy per kilogram of mass (J/kg) (standard name <code>rd</code>).
          */
-        public static const RAD:Unit = u(SI.GRAY.scale(1/100));
+        public static const RAD:Unit = u(SI.GRAY.scale(1, 100));
         
         /**
          * A unit of radiation dose effective equal to <code>0.01 Sv</code>
          * (standard name <code>rem</code>).
          */
-        public static const REM:Unit = u(SI.SIEVERT.scale(1/100));
+        public static const REM:Unit = u(SI.SIEVERT.scale(1, 100));
         
         //////////////////////////
         // Radioactive activity //
@@ -640,7 +640,7 @@ package org.ngs.as3units
          * A unit of volume equal to one cubic decimeter (default label
          * <code>L</code>, also recognized <code>µL, mL, cL, dL</code>).
          */
-        public static const LITRE:Unit = u(SI.CUBIC_METRE.scale(1/1000));
+        public static const LITRE:Unit = u(SI.CUBIC_METRE.scale(1, 1000));
         
         /**
          * Equivalent to {@link #LITRE} (American spelling).
@@ -663,25 +663,25 @@ package org.ngs.as3units
          * A unit of volume equal to <code>1 / 128 {@link #GALLON_LIQUID_US}</code>
          * (standard name <code>oz_fl</code>).
          */
-        public static const OUNCE_LIQUID_US:Unit = u(GALLON_LIQUID_US.scale(1/128));
+        public static const OUNCE_LIQUID_US:Unit = u(GALLON_LIQUID_US.scale(1, 128));
         
         /**
          * A unit of volume equal to one US dry gallon.
          * (standard name <code>gallon_dry_us</code>).
          */
-        public static const GALLON_DRY_US:Unit = u(CUBIC_INCH.scale(2688025/10000));
+        public static const GALLON_DRY_US:Unit = u(CUBIC_INCH.scale(2688025, 10000));
         
         /**
          * A unit of volume equal to <code>4.546 09 {@link #LITRE}</code>
          * (standard name <code>gal_uk</code>).
          */
-        public static const GALLON_UK:Unit = u(LITRE.scale(454609/100000));
+        public static const GALLON_UK:Unit = u(LITRE.scale(454609, 100000));
         
         /**
          * A unit of volume equal to <code>1 / 160 {@link #GALLON_UK}</code>
          * (standard name <code>oz_fl_uk</code>).
          */
-        public static const OUNCE_LIQUID_UK:Unit = u(GALLON_UK.scale(1/160));
+        public static const OUNCE_LIQUID_UK:Unit = u(GALLON_UK.scale(1, 160));
         
         ///////////////
         // Viscosity //
