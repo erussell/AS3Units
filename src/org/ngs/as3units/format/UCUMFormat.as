@@ -18,10 +18,6 @@ package org.ngs.as3units.format
 
     public class UCUMFormat implements UnitFormat
     {
-        public static function parseBaseUnit (name:String) : Unit {
-            return null;
-        }
-        
         /** Instance for formatting using "print" symbols */
         private static var PRINT_INSTANCE:UCUMFormat = new UCUMFormat(new UCUMPrintSymbols(), false);
         

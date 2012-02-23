@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 src/org/ngs/as3units/format/UCUM.g 2011-09-27 12:27:21
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 src/org/ngs/as3units/format/UCUM.g 2012-02-22 01:05:52
 package  org.ngs.as3units.format  {
 
     import org.ngs.as3units.Unit;
@@ -522,7 +522,7 @@ package  org.ngs.as3units.format  {
                                     var symbol:String = (ATOM14!=null?ATOM14.text:null);
                                     var entry:SymbolMapEntry = symbols.lookup(symbol);
                                     if (entry == null) {
-                                        throw new Error("symbol not found " + symbol);
+                                        throw new SymbolNotFound(symbol);
                                     } else if (entry.prefix != null) {
                                         value = entry.unit.transform(entry.prefix.converter);
                                     } else {

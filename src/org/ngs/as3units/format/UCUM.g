@@ -62,7 +62,7 @@ simpleUnit returns [Unit value]
             var symbol:String = $ATOM.text;
             var entry:SymbolMapEntry = symbols.lookup(symbol);
             if (entry == null) {
-                throw new Error("symbol not found " + symbol);
+                throw new SymbolNotFound(symbol);
             } else if (entry.prefix != null) {
                 $value = entry.unit.transform(entry.prefix.converter);
             } else {
