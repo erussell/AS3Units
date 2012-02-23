@@ -1,5 +1,7 @@
 package org.ngs.as3units.format
 {
+    import flash.utils.getQualifiedClassName;
+    
     import org.antlr.runtime.ANTLRStringStream;
     import org.antlr.runtime.CommonTokenStream;
     import org.ngs.as3units.Prefix;
@@ -21,8 +23,25 @@ package org.ngs.as3units.format
     public class UnitsFormat implements UnitFormat
     {
         //////////////////////////////////////////////////////
+        // Class methods                                    //
+        //////////////////////////////////////////////////////
+        
+        /** Instance for formatting using "print" symbols */
+        private static var s_instance:UnitsFormat = null;
+        
+        /** Returns the instance for formatting using "print" symbols */
+        public static function getInstance () : UnitsFormat {
+            if (s_instance == null) {
+                s_instance = new UnitsFormat(new DefaultUnitSymbols());
+            }
+            return s_instance;
+        }
+        
+        //////////////////////////////////////////////////////
         // Class variables                                  //
         //////////////////////////////////////////////////////
+        
+        
         
         /** Operator precedence for the addition and subtraction operations */
         public static const ADDITION_PRECEDENCE:int = 0;
@@ -65,7 +84,7 @@ package org.ngs.as3units.format
          * than those that are already defined by the javax.measure.converter package</b>, 
          * which will always use the default format.
          */
-        protected const m_converterFormats:Object = {};
+        protected var m_converterFormats:Object;
         
         //////////////////
         // Constructors //
@@ -77,17 +96,12 @@ package org.ngs.as3units.format
         public function UnitsFormat (symbolMap:SymbolMap) { 
             m_symbolMap = symbolMap;
             m_asciiOnly = false;
-            var c:Object;
-            c = AddConverter;
-            m_converterFormats[c.toString()] = new AddConverterFormat();
-            c = LogConverter;
-            m_converterFormats[c.toString()] = new LogConverterFormat();
-            c = ExpConverter;
-            m_converterFormats[c.toString()] = new ExpConverterFormat();
-            c = MultiplyConverter;
-            m_converterFormats[c.toString()] = new MultiplyConverterFormat();
-            c = RationalConverter;
-            m_converterFormats[c.toString()] = new RationalConverterFormat();
+            m_converterFormats = {};
+            m_converterFormats['org.ngs.as3units.converter::AddConverter'] = new AddConverterFormat();
+            m_converterFormats['org.ngs.as3units.converter::LogConverter'] = new LogConverterFormat();
+            m_converterFormats['org.ngs.as3units.converter::ExpConverter'] = new ExpConverterFormat();
+            m_converterFormats['org.ngs.as3units.converter::MultiplyConverter'] = new MultiplyConverterFormat();
+            m_converterFormats['org.ngs.as3units.converter::RationalConverter'] = new RationalConverterFormat();
         }
         
         ////////////////////////
@@ -146,8 +160,8 @@ package org.ngs.as3units.format
          * @param c the subclass of <code>ConverterFormat</code> to be formatted
          * @param format the formatter
          */
-        public function addConverterFormat (converterClass:Class, format:ConverterFormat) : void {
-            m_converterFormats[Object(converterClass).toString()] = format;
+        public function addConverterFormat (fullyQualifiedClassName:String, format:ConverterFormat) : void {
+            m_converterFormats[fullyQualifiedClassName] = format;
         }
         
         ////////////////
@@ -323,7 +337,7 @@ package org.ngs.as3units.format
                 }
                 return unitPrecedence;
             }
-            var format:ConverterFormat = m_converterFormats[Object(converter).constructor.toString()];
+            var format:ConverterFormat = m_converterFormats[getQualifiedClassName(converter)];
             if (format != null) {
                 return format.formatConverter(converter, continued, unitPrecedence, buffer, m_asciiOnly);
             }
@@ -342,7 +356,10 @@ package org.ngs.as3units.format
             var tokens:CommonTokenStream = new CommonTokenStream(lexer);
             var parser:UnitsParser = new UnitsParser(tokens);
             parser.symbols = m_symbolMap;
-            return parser.unit();
+            try {
+                return parser.unit();
+            } catch (e:SymbolNotFound) { }
+            return null;
         }
     }
 }
