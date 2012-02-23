@@ -35,6 +35,8 @@
             <fileset dir="src/org/ngs/as3units/format">
                 <include name="UCUMParser.as"/>
                 <include name="UCUMLexer.as"/>
+                <include name="UnitsParser.as"/>
+                <include name="UnitsLexer.as"/>
             </fileset>
         </delete>
     </target>
