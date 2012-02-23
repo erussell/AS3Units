@@ -1,7 +1,6 @@
 package org.ngs.as3units
 {
-    import org.ngs.as3units.format.UCUMCaseSensitiveSymbols;
-    import org.ngs.as3units.format.UCUMFormat;
+    import org.ngs.as3units.format.UnitsFormat;
 
     public class UserDefined extends SystemOfUnits
     {
@@ -9,10 +8,14 @@ package org.ngs.as3units
         
         public static function get FORMAT () : UnitFormat {
             if (s_format == null) {
-                s_format = new UCUMFormat(new UserSymbolMap(), true, true);
+                s_format = new UnitsFormat(new UserSymbolMap());
             }
             return s_format;
         } 
+        
+        public static function get ONE () : Unit {
+            return DELEGATE.ONE;
+        }
         
         public static function isDefinitionEnabled () : Boolean { 
             return UserSymbolMap(FORMAT.symbols).definitionEnabled;
@@ -25,13 +28,13 @@ package org.ngs.as3units
 }
 
 import mx.utils.RPCStringUtil;
-import org.ngs.as3units.UCUM;
-import org.ngs.as3units.Unit;
-import org.ngs.as3units.format.SymbolMap;
-import org.ngs.as3units.format.SymbolMapEntry;
-import org.ngs.as3units.format.UCUMCaseSensitiveSymbols;
 
-internal class UserSymbolMap extends UCUMCaseSensitiveSymbols 
+import org.ngs.as3units.Unit;
+import org.ngs.as3units.UserDefined;
+import org.ngs.as3units.format.DefaultUnitSymbols;
+import org.ngs.as3units.format.SymbolMapEntry;
+
+internal class UserSymbolMap extends DefaultUnitSymbols 
 {
     private static const RESERVED_CHARS:RegExp = /[\u0000-\u001F\(\)\*\+\-\.\/0-9:\\^\u00B2\u00B3\u00B7\u00B9\u2070\u2074-\u2079]/
     
@@ -54,7 +57,7 @@ internal class UserSymbolMap extends UCUMCaseSensitiveSymbols
             } else {
                 var userUnit:Unit = m_symbolToUnit[symbol];
                 if ((userUnit == null) && definitionEnabled) {
-                    userUnit = UCUM.ONE.alternate(symbol);
+                    userUnit = UserDefined.ONE.alternate(symbol);
                     m_symbolToUnit[symbol] = userUnit;
                     m_unitToSymbol[userUnit.hash] = symbol;
                 }
