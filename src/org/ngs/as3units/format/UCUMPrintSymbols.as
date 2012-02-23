@@ -6,26 +6,26 @@ package org.ngs.as3units.format
     public class UCUMPrintSymbols extends SymbolMap
     {
         public function UCUMPrintSymbols () {
-            lp(Prefix.YOTTA, "Y")
-            lp(Prefix.ZETTA, "Z")
-            lp(Prefix.EXA, "E")
-            lp(Prefix.PETA, "P")
-            lp(Prefix.TERA, "T")
-            lp(Prefix.GIGA, "G")
-            lp(Prefix.MEGA, "M")
-            lp(Prefix.KILO, "k")
-            lp(Prefix.HECTO, "h")
-            lp(Prefix.DEKA, "da")
-            lp(Prefix.DECI, "d")
-            lp(Prefix.CENTI, "c")
-            lp(Prefix.MILLI, "m")
-            lp(Prefix.MICRO, "\u03bc")
-            lp(Prefix.NANO, "n")
-            lp(Prefix.PICO, "p")
-            lp(Prefix.FEMTO, "f")
-            lp(Prefix.ATTO, "a")
-            lp(Prefix.ZEPTO, "z")
-            lp(Prefix.YOCTO, "y")
+            lp(Prefix.YOTTA, "Y");
+            lp(Prefix.ZETTA, "Z");
+            lp(Prefix.EXA, "E");
+            lp(Prefix.PETA, "P");
+            lp(Prefix.TERA, "T");
+            lp(Prefix.GIGA, "G");
+            lp(Prefix.MEGA, "M");
+            lp(Prefix.KILO, "k");
+            lp(Prefix.HECTO, "h");
+            lp(Prefix.DEKA, "da");
+            lp(Prefix.DECI, "d");
+            lp(Prefix.CENTI, "c");
+            lp(Prefix.MILLI, "m");
+            lp(Prefix.MICRO, "\u03bc");
+            lp(Prefix.NANO, "n");
+            lp(Prefix.PICO, "p");
+            lp(Prefix.FEMTO, "f");
+            lp(Prefix.ATTO, "a");
+            lp(Prefix.ZEPTO, "z");
+            lp(Prefix.YOCTO, "y");
             
             lu(UCUM.METER, "m");
             lu(UCUM.SECOND, "s");

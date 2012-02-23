@@ -61,8 +61,9 @@ package org.ngs.as3units.unit
                 return true;
             } else if (that is ProductUnit) {
                 var otherEntries:Vector.<ProductUnitEntry> = ProductUnit(that).m_entries;
-                if (otherEntries.length != m_entries.length)
+                if (otherEntries.length != m_entries.length) {
                     return false;
+                }
                 for each (var entry1:ProductUnitEntry in m_entries) {
                     var found:Boolean = false;
                     for each (var entry2:ProductUnitEntry in otherEntries) {

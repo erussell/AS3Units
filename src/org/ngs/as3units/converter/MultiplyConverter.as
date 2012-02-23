@@ -14,8 +14,9 @@ package org.ngs.as3units.converter
         private var m_factor:Number;
         
         public function MultiplyConverter (factor:Number) {
-            if (factor == 1)
+            if (factor == 1) {
                 throw new ArgumentError("Identity converter not allowed");
+            }
             m_factor = factor;
         }
         

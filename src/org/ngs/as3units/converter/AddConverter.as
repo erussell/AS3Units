@@ -16,8 +16,9 @@ package org.ngs.as3units.converter
          * @throws IllegalArgumentException if offset is zero (or close to zero).
          */
         public function AddConverter (offset:Number) {
-            if (offset == 0)
+            if (offset == 0) {
                 throw new ArgumentError("Identity converter not allowed");
+            }
             m_offset = offset;
         }
         

@@ -13,8 +13,9 @@ package org.ngs.as3units.unit
         
         public function TransformedUnit (delegate:UnitDelegate, parent:Unit, toParent:UnitConverter) {
             super(delegate);
-            if (toParent == UnitConverterBase.IDENTITY)
+            if (toParent == UnitConverterBase.IDENTITY) {
                 throw new ArgumentError("Identity not allowed");
+            }
             m_parent = parent;
             m_toParent = toParent;
         }
