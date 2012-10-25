@@ -261,7 +261,7 @@ package org.ngs.as3units.format
             lu(UCUM.OERSTED, "Oe");
             lu(UCUM.GILBERT, "Gb");
             lu(UCUM.STILB, "sb");
-            lu(UCUM.LAMBERT, "L");
+            lu(UCUM.LAMBERT, "La");
             lu(UCUM.PHOT, "ph");
             lu(UCUM.CURIE, "Ci");
             lu(UCUM.ROENTGEN, "R");
